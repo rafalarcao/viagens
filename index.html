@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomendações de Viagem - CVC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #ffd400;
+            color: #333;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .search {
+            margin-bottom: 20px;
+        }
+        .search input {
+            width: calc(100% - 110px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search button {
+            padding: 10px;
+            background-color: #ffd400;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .search button:hover {
+            background-color: #e5bf00;
+        }
+        .results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recomendações de Viagem - CVC</h1>
+    </header>
+    <div class="container">
+        <div class="search">
+            <label for="search">Digite o nome da cidade ou hotel:</label><br>
+            <input type="text" id="search" placeholder="Ex.: Maringá ou Hotel Tropical">
+            <button onclick="searchRecommendations()">Buscar</button>
+        </div>
+        <div class="results" id="results">
+            <p>Os resultados aparecerão aqui...</p>
+        </div>
+    </div>
+    <script>
+        function searchRecommendations() {
+            const searchInput = document.getElementById('search').value;
+            const resultsDiv = document.getElementById('results');
+
+            if (!searchInput.trim()) {
+                resultsDiv.innerHTML = '<p>Por favor, insira o nome de uma cidade ou hotel.</p>';
+                return;
+            }
+
+            // Simulação de resultados (pode ser substituído por API futuramente)
+            const recommendations = {
+                "Maringá": "Visite o Parque do Ingá e explore o centro histórico.",
+                "Hotel Tropical": "Ótima localização com café da manhã incluso e Wi-Fi grátis."
+            };
+
+            const result = recommendations[searchInput] || "Desculpe, nenhuma recomendação encontrada.";
+
+            resultsDiv.innerHTML = `<p><strong>Recomendações para "${searchInput}":</strong></p><p>${result}</p>`;
+        }
+    </script>
+</body>
+</html>
